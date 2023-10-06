@@ -30,8 +30,8 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_dfc601ac40884c9696d8d541bf2e508d }}/2324Backend:${{ github.sha }}
-        file: ./Dockerfile
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_dfc601ac40884c9696d8d541bf2e508d }}/2324backend:${{ github.sha }}
+        file: ./BackendApp/BackendApp/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
