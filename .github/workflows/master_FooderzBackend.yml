@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_bfa441c895e94e5fb968597180954371 }}/steijnsw/2324Backend:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_bfa441c895e94e5fb968597180954371 }}/steijnsw/2324backend:${{ github.sha }}
         file: ./BackendApp/BackendApp/Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'FooderzBackend'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_2bdc5930924d4b1cacff2c871815a191 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_bfa441c895e94e5fb968597180954371 }}/steijnsw/2324Backend:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_bfa441c895e94e5fb968597180954371 }}/steijnsw/2324backend:${{ github.sha }}'
