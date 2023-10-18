@@ -23,15 +23,15 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_dfc601ac40884c9696d8d541bf2e508d }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_96e448debebf421b8c61c3d424fb905b }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_bfa441c895e94e5fb968597180954371 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_e4cfc95d85bc4a4e8f724f58c11df035 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_dfc601ac40884c9696d8d541bf2e508d }}/2324backend:${{ github.sha }}
-        file: ./BackendApp/BackendApp/Dockerfile
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_bfa441c895e94e5fb968597180954371 }}/steijnsw/2324backend:${{ github.sha }}
+        file: ./Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'FooderzBackend'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_9cc76f9f9ea946d48e1020944ac5a64a }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_dfc601ac40884c9696d8d541bf2e508d }}/2324Backend:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_2bdc5930924d4b1cacff2c871815a191 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_bfa441c895e94e5fb968597180954371 }}/steijnsw/2324backend:${{ github.sha }}'
