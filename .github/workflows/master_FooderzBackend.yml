@@ -48,4 +48,4 @@ jobs:
         app-name: 'FooderzBackend'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_d48e0e69edb24d139dba64920f87b98b }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_a1ad12466ca3431799e72c3a68eaea84 }}/2324Backend:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_a1ad12466ca3431799e72c3a68eaea84 }}/2324backend:${{ github.sha }}'
