@@ -11,7 +11,10 @@ namespace BackendApp.Services
         {
             this.userRepository = userRepository;
         }
-
+        public async Task<bool> RegisterUser(User user)
+        {
+            return await userRepository.RegisterUser(user);
+        }
         public User GetUserByName(string name)
         {
             return userRepository.GetUserByName(name);

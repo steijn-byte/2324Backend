@@ -33,5 +33,21 @@ namespace BackendApp.Repository
                 throw;
             }
         }
+
+        public async Task<bool> RegisterUser(User user)
+        {
+            try
+            {
+                user.Id = Guid.NewGuid();
+                await Users.AddAsync(user);
+                await SaveChangesAsync();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"There was an error: {e.Message}");
+                throw;
+            }
+        }
     }
 }

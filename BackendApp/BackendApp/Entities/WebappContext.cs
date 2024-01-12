@@ -10,8 +10,13 @@ namespace BackendApp.Entities
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
                 .Build();
-            var connectionString = configuration.GetConnectionString("Database");  
-            optionsBuilder.UseSqlServer(connectionString);
+            var connectionString = configuration.GetConnectionString("Database");
+
+            optionsBuilder.UseSqlServer(connectionString, builder =>
+            {
+                builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
+            });
+            base.OnConfiguring(optionsBuilder);
         }
 
 
