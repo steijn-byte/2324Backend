@@ -1,3 +1,10 @@
+using BackendApp.Entities;
+using BackendApp.Interfaces;
+using BackendApp.Repository;
+using BackendApp.Services;
+using Microsoft.IdentityModel.Tokens;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +14,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddDbContext<WebappContext>();
 
 var app = builder.Build();
 
@@ -25,3 +37,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+

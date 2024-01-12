@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
-
+using BackendApp.Interfaces;
 
 namespace BackendApp.Repository
 {
-    public class UserRepository : WebappContext
+    public class UserRepository : WebappContext, IUserRepository
     {
         public UserRepository(DbContextOptions options) : base(options)
         {

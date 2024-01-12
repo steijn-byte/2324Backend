@@ -3,7 +3,7 @@ using BackendApp.Interfaces;
 
 namespace BackendApp.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private readonly IUserRepository userRepository;
 

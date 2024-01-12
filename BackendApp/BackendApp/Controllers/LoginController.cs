@@ -26,7 +26,7 @@ namespace BackendApp.Controllers
             {
                 return BadRequest("Invalid Request");
             }
-
+            //jwt token generation
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 

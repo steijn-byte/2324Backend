@@ -13,6 +13,8 @@ namespace BackendApp.Entities
             var connectionString = configuration.GetConnectionString("Database");  
             optionsBuilder.UseSqlServer(connectionString);
         }
+
+
         public WebappContext(DbContextOptions options) : base(options)
         {
 
