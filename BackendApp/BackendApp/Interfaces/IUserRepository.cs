@@ -4,7 +4,7 @@ namespace BackendApp.Interfaces
 {
     public interface IUserRepository
     {
-        User GetUserByName(string name);
+        User LoginUser(string name, string password);
         Task<bool> RegisterUser(User user);
     }
 }

@@ -15,9 +15,9 @@ namespace BackendApp.Services
         {
             return await userRepository.RegisterUser(user);
         }
-        public User GetUserByName(string name)
+        public User LoginUser(string name, string password)
         {
-            return userRepository.GetUserByName(name);
+            return userRepository.LoginUser(name, password);
         }
     }
 }
