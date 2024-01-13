@@ -12,12 +12,17 @@ namespace BackendApp.Repository
         {
             Database.EnsureCreated();
         }
-        public User GetUserByName(string name)
+        public User LoginUser(string name, string password)
         {
             User? user = null;
             try
             {
-                user = Users.FirstOrDefault(u => u.Username == name);
+                Console.WriteLine("return fake user");
+               // user = Users.FirstOrDefault(u => u.Username == name && u.Password == password);
+                user.Username = name;
+                user.Password = password;
+                user.Email = "test";
+                user.Id = Guid.NewGuid();
                 if (user == null)
                 {
                     throw new Exception("User not found");

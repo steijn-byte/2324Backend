@@ -2,12 +2,12 @@
 {
     public class LoginRequestModel
     {
-        public string Username { get; set; }
+        public string Email { get; set; }
         public string Password { get; set; }
 
-        public LoginRequestModel(string username, string password)
+        public LoginRequestModel(string email, string password)
         {
-            this.Username = username;
+            this.Email = email;
             this.Password = password;
         }
     }
