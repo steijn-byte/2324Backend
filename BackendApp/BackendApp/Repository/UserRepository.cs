@@ -18,11 +18,7 @@ namespace BackendApp.Repository
             try
             {
                 Console.WriteLine("return fake user");
-               // user = Users.FirstOrDefault(u => u.Username == name && u.Password == password);
-                user.Username = name;
-                user.Password = password;
-                user.Email = "test";
-                user.Id = Guid.NewGuid();
+                user = Users.FirstOrDefault(u => u.Username == name && u.Password == password);
                 if (user == null)
                 {
                     throw new Exception("User not found");

@@ -21,8 +21,8 @@ namespace BackendApp.Controllers
             _config = config;
             _userService = userService;
         }
-
-        [HttpPost("login")]
+        
+        [HttpPost]
         public async Task<IActionResult> Login([FromBody]LoginRequestModel login)
         {
             Console.WriteLine("Login request received for: " +login.Email.ToString(), login.Password.ToString());

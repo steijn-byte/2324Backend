@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BackendApp.Controllers
 {
+    [Route("[controller]")]
+    [ApiController]
     public class RegisterController : Controller
     {
         private readonly IUserService userService;
@@ -18,6 +20,7 @@ namespace BackendApp.Controllers
         }
 
         // GET: RegisterController
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
@@ -27,6 +30,7 @@ namespace BackendApp.Controllers
         [HttpPost]
         public async Task<IActionResult> RegisterUser([FromBody] User user)
         {
+            Console.WriteLine($"User: {user}");
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -35,6 +39,7 @@ namespace BackendApp.Controllers
             try
             {
                 var result = await userService.RegisterUser(user);
+                Console.WriteLine($"User registered: {result}");
                 return Ok(result);
             }
             catch
@@ -44,6 +49,7 @@ namespace BackendApp.Controllers
         }
 
         // GET: RegisterController/Edit/5
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             return View();
@@ -64,6 +70,7 @@ namespace BackendApp.Controllers
         }
 
         // GET: RegisterController/Delete/5
+        [HttpDelete]
         public ActionResult Delete(int id)
         {
             return View();
