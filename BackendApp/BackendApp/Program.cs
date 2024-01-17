@@ -18,7 +18,7 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(builder =>
     {
         builder
-            .AllowAnyOrigin()
+            .WithOrigins("http://localhost:4200", "https://fooderz.azurewebsites.net") 
             .AllowAnyMethod()
             .AllowAnyHeader();
     });
