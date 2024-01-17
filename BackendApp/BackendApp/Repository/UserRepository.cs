@@ -14,7 +14,7 @@ namespace BackendApp.Repository
         }
         public User LoginUser(string name, string password)
         {
-            User? user = new User() ;
+            User user = new User();
             try
             {
                 Console.WriteLine("return fake user");

@@ -12,7 +12,7 @@ namespace BackendApp.Entities
 
         public User()
         {
-
+            
         }
     }
 }

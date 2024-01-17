@@ -28,67 +28,28 @@ namespace BackendApp.Controllers
 
         // POST: RegisterController/Create
         [HttpPost]
-        public async Task<IActionResult> RegisterUser([FromBody] User user)
+        public async Task<IActionResult> RegisterUser([FromBody] RegisterUser user)
         {
-            Console.WriteLine($"User: {user}");
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            }
-                
+            }       
             try
             {
-                var result = await userService.RegisterUser(user);
-                Console.WriteLine($"User registered: {result}");
+                User userToRegister = new User()
+                {
+                    Username = user.Username,
+                    Id = Guid.NewGuid(),
+                    Email = user.Email,
+                    Password = user.Password
+                };
+                var result = await userService.RegisterUser(userToRegister);
                 return Ok(result);
             }
             catch
             {
                 return View();
             }
-        }
-
-        // GET: RegisterController/Edit/5
-        [HttpGet]
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: RegisterController/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: RegisterController/Delete/5
-        [HttpDelete]
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: RegisterController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        } 
     }
 }

@@ -6,11 +6,12 @@ namespace BackendApp.Controllers
     public class ProfileController : Controller
     {
         // GET: ProfileController
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
-
+        [HttpGet]
         // GET: ProfileController/Details/5
         public ActionResult Details(int id)
         {
@@ -31,7 +32,7 @@ namespace BackendApp.Controllers
                 return View();
             }
         }
-
+        [HttpGet]
         // GET: ProfileController/Edit/5
         public ActionResult Edit(int id)
         {
@@ -52,7 +53,7 @@ namespace BackendApp.Controllers
                 return View();
             }
         }
-
+        [HttpGet]
         // GET: ProfileController/Delete/5
         public ActionResult Delete(int id)
         {
